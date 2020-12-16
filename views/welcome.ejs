@@ -1,0 +1,21 @@
+<%- include('./partials/header.ejs') %>
+<h1>Welcome to the self monitoring application!</h1>
+
+<img src="https://media.tenor.com/images/0350f78009e19269bc357a2c4dc47744/tenor.gif" alt="A warm welcome" width="477" height="270"/>
+<% if(auth) { %>
+<p>You seem to be logged in already. Do you want to check out the main page for users? This page does not contain more than meets the eye. %>
+<form method="GET" action="/behavior/reporting">
+    <input type="submit" value="Take me there!"/>    
+</form>
+
+<% } else { %>
+<p>There's not much fun to see here, because you're not logged in. You should log in and be part of the fun!</p>
+<form method="GET" action="/auth/login">
+    <input type="submit" value="Take me to the login page!"/>    
+</form>
+<p>Don't have a user? Create a user by filling in the registration form!</p>
+<form method="GET" action="/auth/register">
+    <input type="submit" value="Take me to the registration page!"/>    
+</form>
+<% } %>
+<%- include('./partials/footer.ejs') %>

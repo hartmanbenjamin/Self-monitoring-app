@@ -1,0 +1,12 @@
+<%- include('./partials/header.ejs') %>
+
+<h1>User registered successfully!</h1>
+<img src="https://media1.giphy.com/media/3oEjI5VtIhHvK37WYo/giphy.gif"/>
+<p>Good job!</p>
+
+<p>You can now log in using the email <b><i><%= email %></i></b> and the password you just created!</p>
+<form method="GET" action="/auth/login">
+    <input type="submit" value="Take me to the login page!"/>    
+</form>
+
+<%- include('./partials/footer.ejs') %>

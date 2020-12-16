@@ -1,0 +1,38 @@
+<%- include('./partials/header.ejs') %>
+<div>
+<form method="POST" action="/auth/logout">
+    <input type="submit" value="Logout" />
+</form>
+<h1>Hello <%= username %>!</h1>
+</div>
+
+<div>
+    <h2>Mood trends: </h2>
+    <h3>Your average mood today: <b><%= avg_today %></b></h3>
+    <h3>Your average mood yesterday: <b><%= avg_yesterday %></b></h3>
+
+    <% if (Number(avg_today) === 0 && Number(avg_yesterday) === 0) { %>
+        <p1>Let's start tracking your mood! ;)</p1>
+    <% } else if(Number(avg_today) >= Number(avg_yesterday)){ %>
+        <p1>Things are looking bright today! :)</p1>
+    <% } else { %>
+        <p1>Things are looking gloomy today :(</p1>
+    <% }  %>
+</div>
+<div>
+    <h2>Report: </h2>
+    <form method="GET" action="/behavior/morning">
+        <% if (morning) { %>
+        <% } %>
+        <input type="submit" value="Morning <% if (morning) { %>(done today!)<% } %>" />
+    </form>
+    <form method="GET" action="/behavior/evening">
+        <input type="submit" value="Evening <% if (evening) { %>(done today!)<% } %>"/>
+    </form>
+
+    <form method="GET" action="/behavior/summary">
+        <input type="submit" value="Summary"/>
+    </form>
+</div>
+<%- include('./partials/footer.ejs') %>
+

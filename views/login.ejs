@@ -1,0 +1,30 @@
+<%- include('./partials/header.ejs') %>
+
+<h2>Login:</h2>
+<div class="red">
+<% if (username) { %>
+    <% if (wrongpass) { //the pw is wrong  %>
+        <p>Wrong password</p>
+    <% } else { // the username is wrong -> clear all fields%>
+        <p>Unknown credentials</p>
+    <% } %>        
+<% } %>
+</div>
+<form method='POST'>
+    <p>Username (email):</p>
+    <% if (username) { %>
+    <input type="text" name="username" required="true" value="<%= username %>" />
+    <% } else { %>  
+    <input type="text" name="username" required="true" />   
+    <% } %>
+    <p>Password:</p>
+    <input type="password" name="password" minlength="4" required="true" />
+    <p></p>
+    <p></p>
+    <input type="submit" value="Login!" />
+</form>
+<form method="GET" action="/auth/register">
+    <p>New user? Register!</p>
+    <input type="submit" value="Go to register page"/>
+</form>
+<%- include('./partials/footer.ejs') %>

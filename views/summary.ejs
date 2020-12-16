@@ -1,0 +1,43 @@
+<%- include('./partials/header.ejs') %>
+<form method="GET" action="/behavior/reporting">
+    <input type="submit" value="Back"/>
+</form>
+<h1>Summary</h1>
+
+<h3>Choose summary period: </h3>
+<form method="POST" action="/behavior/summary">
+    <label for="week">Week</label>
+    <input type="week" name="week" id="week"/>
+    <input type="submit" value="Refresh"/> 
+</form>
+<form method="POST" action="/behavior/summary">
+    <label for="month">Month</label>
+    <input type="month"  name="month" id="month"/>
+    <input type="submit" value="Refresh"/> 
+</form>
+
+<h3><b>Summary period: <%= date1 %> to <%= date2 %></b></h3>
+
+<table>
+    <tr>
+        <td>Sleep duration average: </td>
+        <td><%= sd_avg %></td>
+    </tr>
+    <tr>
+        <td>Sleep quality average:</td>
+        <td><%= sq_avg %></td>
+    </tr>
+    <tr>
+        <td>Sports and excercise average: </td>
+        <td><%= sp_avg %></td>
+    </tr>
+    <tr>
+        <td>Study time average:</td>
+        <td><%= st_avg %></td>
+    </tr>
+    <tr>
+        <td>Generic mood average: </td>
+        <td><%= m_avg %></td>
+    </tr>
+</table>
+<%- include('./partials/footer.ejs') %>

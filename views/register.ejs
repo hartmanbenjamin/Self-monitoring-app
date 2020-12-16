@@ -1,0 +1,22 @@
+<%- include('./partials/header.ejs') %>
+<h2>Register!</h2>
+<div class="red">
+    <% if (!isFree) { %>
+    <p>Username already in use, please choose another one</p>
+    <% } %>
+</div>
+<form method='POST'>
+    <p>Username:</p>
+<input type="email" name="username" required="true" <% if(!isFree) { %> value="<%= email %>" <% } %>/>
+    <p>Password (at least 4 characters long):</p>
+    <input type="password" name="password" minlength="4" required="true" />
+    <p></p>
+    <p></p>
+    <input type="submit" value="Register!" />
+</form>
+
+<form method="GET" action="/auth/login">
+    <p>Already have an account? Login! <p>
+    <input type="submit" value="Go to login page"/>
+</form>
+<%- include('./partials/footer.ejs') %>
